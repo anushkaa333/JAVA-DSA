@@ -10,8 +10,8 @@ public class Subsequences {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		String str1 = sc.next();
-		//subseq("", str1);
-		subseqRt("", str1);
+		subseq("", str1);
+		System.out.println(subseqRt("", str1));
 	}
 
 	public static void subseq(String str2, String str1)
