@@ -39,7 +39,7 @@ public class Subsequences {
 		
 		char ch = str1.charAt(0);
 		ArrayList<String> left = subseqRt(str2+ch, str1.substring(1));
-		ArrayList<String> right = subseqRt(str2+ch, str1.substring(1));
+		ArrayList<String> right = subseqRt(str2, str1.substring(1));
 		
 		left.addAll(right);
 		return left;
@@ -55,6 +55,7 @@ bc
 b
 c
 
+[abc, ab, ac, a, bc, b, c, ]
 
 
 abcd
