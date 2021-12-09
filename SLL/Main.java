@@ -115,6 +115,85 @@ public class Main {
 			}
 				
 		}
+		
+		public void addfirst(int val)
+		{
+			Node temp = new Node();
+			temp.data = val;
+			temp.next = head;
+			head = temp;
+			if(size == 0)
+			{
+				tail = temp;
+			}
+			size++;
+		}
+		
+		public void addAt(int val, int idx)
+		{
+			if(idx < 0 || idx > size)
+			{
+				System.out.println("Invalid");
+			}
+			else if(idx == 0)
+			{
+				addfirst(val);
+			}
+			else if(idx == size)
+			{
+				addLast(val);
+			}
+			else
+			{
+				Node node = new Node();
+				node.data = val;
+				Node temp = head;
+				for(int i=0; i<idx - 1; i++)
+				{
+					temp = temp.next;
+				}
+				node.next = temp.next;
+				temp.next = node;
+			}
+			
+		}
+		
+		public void removelast()
+		{
+			if(size == 0)
+			{
+				System.out.println("List is empty");
+			}
+			else if(size == 1)
+			{
+				head = tail = null;
+				size = 0;
+			}
+			else
+			{
+				Node temp = head;
+				for(int i = 0; i < size - 2; i++)
+				{
+					temp = temp.next;
+				}
+				tail = temp;
+				temp.next = null;
+				size -- ;
+			}	
+		}
+		
+		public int mid()
+		{
+			Node s = head;
+			Node f = head;
+			
+			while(f.next != null && f.next.next !=null)
+			{
+				s = s.next;
+				f = f.next.next;
+			}
+			return s.data;
+		}
 	}
 	
 	
@@ -184,6 +263,28 @@ public class Main {
 				{
 					System.out.println(val);
 				}
+			}
+			if(str.startsWith("addfirst"))
+			{
+				int val = Integer.parseInt(br.readLine());
+				 list.addfirst(val);
+				
+			}
+			if(str.startsWith("addAt"))
+			{
+				int val = Integer.parseInt(br.readLine());
+				int idx = Integer.parseInt(br.readLine());
+				 list.addAt(val, idx);
+				
+			}
+			if(str.startsWith("removeLast"))
+			{
+				list.removelast();
+			}
+			if(str.startsWith("mid"))
+			{
+				int val = list.mid();
+				System.out.println(val);	
 			}
 		}
 	}
