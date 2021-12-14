@@ -25,7 +25,7 @@ public class Main {
 			temp.next = null;
 			if(size==0)
 			{
-				temp = head = tail;
+				head = tail = temp ;
 			}
 			else
 			{
@@ -194,6 +194,26 @@ public class Main {
 			}
 			return s.data;
 		}
+		
+		public int kth_ele(int idx)
+		{
+			Node s = head;
+			Node f = head;
+			
+			for(int i=0; i < idx; i++)
+			{
+				f = f.next;
+			}
+			
+			while(f.next!=null)
+			{
+				s = s.next;
+				f = f.next;
+			}
+			
+			return s.data;
+		}
+		
 	}
 	
 	
@@ -284,6 +304,12 @@ public class Main {
 			if(str.startsWith("mid"))
 			{
 				int val = list.mid();
+				System.out.println(val);	
+			}
+			if(str.startsWith("kth"))
+			{
+				int idx = Integer.parseInt(br.readLine());
+				int val = list.kth_ele(idx);
 				System.out.println(val);	
 			}
 		}
