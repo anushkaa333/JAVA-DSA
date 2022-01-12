@@ -217,4 +217,62 @@ Enter data :
 10 
 9 
 2 
+
+
+Enter data : 
+2
+Enter left for : 2
+Enter data : 
+4
+Enter left for : 4
+Enter data : 
+7
+Enter left for : 7
+Enter data : 
+6
+Enter left for : 6
+Enter data : 
+-1
+Enter right for : 6
+Enter data : 
+-1
+Enter right for : 7
+Enter data : 
+-1
+Enter right for : 4
+Enter data : 
+10
+Enter left for : 10
+Enter data : 
+-1
+Enter right for : 10
+Enter data : 
+-1
+Enter right for : 2
+Enter data : 
+8
+Enter left for : 8
+Enter data : 
+1
+Enter left for : 1
+Enter data : 
+-1
+Enter right for : 1
+Enter data : 
+-1
+Enter right for : 8
+Enter data : 
+-1
+6 7 4 10 2 1 8 Exception in thread "main" 
+2 4 7 6 10 8 1 
+6 7 10 4 1 8 2 
+4
+7
+
+2 4 8 7 10 1 java.lang.NullPointerException: Cannot read field "data" because "root" is null
+	at Tree.BS.LOT(BS.java:126)
+	at Tree.BS.LOT(BS.java:133)
+	at Tree.BS.LOT(BS.java:133)
+	at Tree.BS.levelOrderTraversal(BS.java:114)
+	at Tree.BS.main(BS.java:30)
 */
