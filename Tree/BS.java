@@ -12,22 +12,30 @@ public class BS
 		sc = new Scanner(System.in);
 		Node root = CreateTree();
 		//System.out.println(root);
+		System.out.println("Inorder");
 		inorder(root);
-		System.out.println();
-		preorder(root);
-		System.out.println();
-
-		postorder(root);
-		System.out.println();
 		
+		System.out.println("Preorder");
+		preorder(root);
+		
+		System.out.println("Postorder");
+		postorder(root);
+		
+		System.out.println("Height of tree");
 		int ht = height(root);
 		System.out.println(ht);
 		
-		int sz = size(root);// no of nodes
+		System.out.println("no of nodes in tree");
+		int sz = size(root);
 		System.out.println(sz);
-		System.out.println();
-
+		
+		
+		System.out.println("Level order using recursion : ");
 		levelOrderTraversal(root, ht);
+		
+		System.out.println("Level order using queue : ");
+		PrintLevelOrder(root);
+
 
 		
 	}
@@ -132,6 +140,25 @@ public class BS
 				LOT(root.left , level-1 );
 				LOT(root.right , level -1);
 			}
+		}
+	}
+	
+	//using queue
+	public static void PrintLevelOrder(Node root)
+	{
+		Queue<Node> q = new LinkedList<>();
+		q.add(root);
+		while(!q.isEmpty())
+		{
+			Node cur = q.poll();
+			System.out.print(q.poll() + " ");
+			
+			if(cur.left != null)
+				q.add(cur.left);
+			
+			if(cur.right != null)
+				q.add(cur.right);
+				
 		}
 	}
 
