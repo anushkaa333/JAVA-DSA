@@ -298,13 +298,13 @@ class Node
 }
 
 /*
- * 							2
+ * 						     2	
 						  /   \
 						 4      8
 						/ \    / \
-					   7  10   1  9
-					  /
-					 6
+					       7  10   1   9
+					      /
+					      6
 Enter data : 
 2
 Enter left for : 2
