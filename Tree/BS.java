@@ -98,7 +98,11 @@ public class BS
 		System.out.println();
 		System.out.println("Right view" );
 		System.out.println(RightView(root, 0));
-
+		
+		
+		System.out.println();
+		System.out.println("Check balanced or not" );
+		System.out.println(Bal(root));
 		
 	}
 	
@@ -282,6 +286,37 @@ public class BS
 		
 	
 	}
+	
+	public static boolean Bal(Node root)
+	{
+		return CheckBal(root)!=-1;
+	}
+	
+	public static int CheckBal(Node root)
+	{
+		if(root == null)
+		{
+			return 0;
+		}
+		
+		int left_height =  CheckBal(root.left);
+		if(left_height == -1)
+		{
+			return -1;
+		}
+		
+		
+		int right_height = CheckBal(root.right);
+		if(left_height == -1)
+			return -1;
+		
+		
+		if(Math.abs(left_height - right_height) > 1)
+		{
+			return -1;
+		}
+		return Math.max(CheckBal(root.left), CheckBal(root.right)) + 1;
+	}
 }
 
 
@@ -298,13 +333,13 @@ class Node
 }
 
 /*
- * 						     2	
+ * 							2
 						  /   \
 						 4      8
 						/ \    / \
-					       7  10   1   9
-					      /
-					      6
+					   7  10   1  9
+					  /
+					 6
 Enter data : 
 2
 Enter left for : 2
@@ -385,4 +420,7 @@ Right view
 6
 [Tree.Node@58372a00, Tree.Node@7cca494b, Tree.Node@4dd8dc3, Tree.Node@6d03e736]
 				
+				
+Check balanced or not
+true				
 */
