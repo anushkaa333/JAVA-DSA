@@ -317,6 +317,18 @@ public class BS
 		}
 		return Math.max(CheckBal(root.left), CheckBal(root.right)) + 1;
 	}
+	
+	public static int Dia(Node root)
+	{
+		if(root == null)
+		{
+			return 0;
+		}
+		int left = Dia(root.left);
+		int right = Dia(root.right);
+		int cur = height(root.left) + height(root.right) + 1; // call to height function
+		return Math.max(cur, Math.max(right, left));
+	}
 }
 
 
