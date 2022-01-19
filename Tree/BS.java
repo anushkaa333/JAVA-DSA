@@ -422,5 +422,9 @@ Right view
 				
 				
 Check balanced or not
-true				
+true			
+
+Diameter :
+6
+
 */
