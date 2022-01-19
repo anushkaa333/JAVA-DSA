@@ -329,6 +329,27 @@ public class BS
 		int cur = height(root.left) + height(root.right) + 1; // call to height function
 		return Math.max(cur, Math.max(right, left));
 	}
+	
+	public static int MPS(Node root)
+	{
+		int max[] = new int[1];
+		max[0] = Integer.MIN_VALUE;
+		M_P_S(root, max);
+		return max[0];
+	}
+	
+	public static int M_P_S(Node root, int max[])
+	{
+		if(root == null)
+		{
+			return 0;
+		}
+		
+		int left = Math.max(0, M_P_S(root.left, max));
+		int right = Math.max(0, M_P_S(root.right, max));
+		max[0] = Math.max(max[0], left + right + root.data);
+		return Math.max(left, right) + root.data;
+	}
 }
 
 
@@ -438,5 +459,11 @@ true
 
 Diameter :
 6
+
+Max path sum :
+36
+
+
+
 
 */
