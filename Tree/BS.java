@@ -452,7 +452,7 @@ Right view
 8
 1
 6
-[Tree.Node@58372a00, Tree.Node@7cca494b, Tree.Node@4dd8dc3, Tree.Node@6d03e736]
+[2, 8, 9, 6]
 				
 				
 Check balanced or not
