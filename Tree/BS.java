@@ -104,6 +104,18 @@ public class BS
 		System.out.println("Check balanced or not" );
 		System.out.println(Bal(root));
 		
+		System.out.println();
+		System.out.println("Diameter :" );
+		System.out.println(Dia(root));
+		
+		System.out.println();
+		System.out.println("Max path sum :" );
+		System.out.println(MPS(root));
+		
+		System.out.println();
+		System.out.println("Boundry level traversal :" );
+		System.out.println(blt(root));
+		
 	}
 	
 	public static Node CreateTree()
@@ -351,6 +363,91 @@ public class BS
 		max[0] = Math.max(max[0], left + right + root.data);
 		return Math.max(left, right) + root.data;
 	}
+	
+	
+	public static ArrayList<Integer> blt(Node root)
+	{
+		ArrayList<Integer> al = new ArrayList<Integer>();
+		if(isLeaf(root) == false)
+		{
+			al.add(root.data);
+		}
+		addLeftBoundary(root, al);
+		addLeaves(root, al);
+		addRightBoundary(root, al);
+		return al;
+	}
+	
+	public static boolean isLeaf(Node root)
+	{
+		if(root.left == null && root.right == null)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public static void addLeftBoundary(Node root, ArrayList<Integer> al)
+	{
+		Node cur = root.left;
+		while(cur!=null)
+		{
+			if(isLeaf(cur) == false)
+			{
+				al.add(cur.data);
+			}
+			
+			if(cur.left!=null)
+			{
+				cur = cur.left;
+			}
+			cur = cur.right;
+		}
+	}
+	
+	public static void addLeaves(Node root, ArrayList<Integer> al)
+	{
+		if(isLeaf(root))
+		{
+			al.add(root.data);
+			return;
+		}
+		
+		if(root.left!=null)
+		{
+			addLeaves(root.left, al);
+		}
+		if(root.right!=null)
+		{
+			addLeaves(root.right, al);
+		}
+	}
+	
+	public static void addRightBoundary(Node root, ArrayList<Integer> al)
+	{
+		Node cur = root.right;
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		while(cur!=null)
+		{
+			if(!isLeaf(cur))
+			{
+				temp.add(cur.data);
+			}
+			
+			if(cur.right!=null)
+			{
+				cur = cur.right;
+			}
+			cur = cur.left;
+			
+		}
+		int i ;
+		for(i = temp.size() -1 ; i>=0; i--)
+		{
+			al.add(temp.get(i));
+		}
+	}
+	
 }
 
 
@@ -464,7 +561,8 @@ Diameter :
 Max path sum :
 36
 
-
+Boundry level traversal :
+[2, 4, 6, 10, 1, 9, 8]
 
 
 */
