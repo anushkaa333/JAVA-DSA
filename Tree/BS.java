@@ -258,31 +258,32 @@ public class BS
 	}
 
 	
-	public static ArrayList<Node> RightView(Node root, int level)
+	public static ArrayList<Integer> RightView(Node root, int level)
 	{
 		//Queue<Node> q = new LinkedList<Node>();
 		//Stack<Node> st = new Stack<Node>();
 		
-		ArrayList<Node> al = new  ArrayList<>();
+		ArrayList<Integer> al = new  ArrayList<>();
 		RV(root, level, al);
 		return al;
 		
 	}
 	
-	public static void RV(Node root, int level, ArrayList<Node> al)
+	public static void RV(Node root, int level, ArrayList<Integer> al)
 	{
 		if(root==null)
 		{
 			return;
 		}
 		
+		//Node cur = root;
 		if(al.size() == level)
 		{
-			al.add(root);
+			al.add(root.data); // only al.add(root) will throw error or we can create new node cur and add cur.data
 			System.out.println(root.data);
 		}
-		LV(root.right, level+1, al);
-		LV(root.left, level+1, al);
+		RV(root.right, level+1, al);
+		RV(root.left, level+1, al);
 		
 	
 	}
@@ -366,13 +367,13 @@ class Node
 }
 
 /*
- * 							2
+ * 						    2
 						  /   \
 						 4      8
 						/ \    / \
-					   7  10   1  9
-					  /
-					 6
+					       7  10   1  9
+					      /
+					     6
 Enter data : 
 2
 Enter left for : 2
