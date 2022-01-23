@@ -38,8 +38,33 @@ public class Path_Restriction {
 		}
 	}
 	
+	public static void pathRC(boolean[][] board)
+	{
+		System.out.println("No of total paths : "+ p_Count(board, board.length-1 , board[0].length -1));
+
+	}
+	
+	public static int p_Count(boolean[][] board, int r , int c)
+	{
+		if(r==0 || c==0)
+		{
+			return 1;
+		}
+		if(!board[r][c])
+		{
+			return 0;
+		}
+		int right = p_Count(board, r, c-1);
+		int down = p_Count(board, r-1, c);
+		int count = right + down;
+		return count;
+	}
+	
+	
 }
 
 /*
  * DDRR
-RRDD*/
+RRDD
+No of total paths : 2
+*/
