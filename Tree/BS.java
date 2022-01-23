@@ -116,6 +116,10 @@ public class BS
 		System.out.println("Boundry level traversal :" );
 		System.out.println(blt(root));
 		
+		System.out.println();
+		System.out.println("Zigzag traversal :" );
+		zigzag(root); //for void type
+		System.out.println(zigzag(root));//for list type
 	}
 	
 	public static Node CreateTree()
@@ -448,6 +452,132 @@ public class BS
 		}
 	}
 	
+	
+	public static void zigzag(Node root)
+	{
+		/*Stack<Node> st1 = new Stack<Node>();
+		Stack<Node> st2 = new Stack<Node>();
+		st1.push(root);
+		while(!st1.isEmpty() || !st2.isEmpty())
+		{
+			while(!st1.isEmpty())
+			{
+				Node nd = st1.pop();
+				System.out.print(nd.data);
+				if(nd.left!=null)
+				{
+					nd = nd.left;
+					st2.push(nd);
+				}
+				if(root.right!=null)
+				{
+					nd = nd.right;
+					st2.push(nd);
+				}
+			}
+			
+			while(!st2.isEmpty())
+			{
+				Node nd1 = st2.pop();
+				System.out.print(nd1.data);
+				if(nd1.right!=null)
+				{
+					nd1 = nd1.right;
+					st1.push(nd1);
+				}
+				if(nd1.left!=null)
+				{
+					nd1 = nd1.right;
+					st1.push(nd1);
+				}
+			}
+		}*/
+		
+		/*if(root == null)
+		{
+			return;
+		}
+		Stack<Node> s1 = new Stack<Node>();
+		s1.push(root);
+		
+		boolean b = true; 
+		while(!s1.isEmpty())
+		{
+			Stack<Node> tempst = new Stack<Node>();
+			
+			while(!s1.isEmpty())
+			{
+				Node tempnd = s1.pop();
+				System.out.print(tempnd.data + " ");
+				if(b)
+				{
+					if(tempnd.left!=null)
+					{
+						tempnd = tempnd.left;
+						tempst.push(tempnd);
+					}
+					if(tempnd.right!=null)
+					{
+						tempnd = tempnd.right;
+						tempst.push(tempnd);
+					}
+				}
+				else
+				{
+					if(tempnd.right!=null)
+						tempst.push(tempnd.left);
+					
+					if(tempnd.left!=null)
+						tempst.push(tempnd.right);
+				}
+			}
+			
+			s1 = tempst;
+			b = !b;
+		}
+		//2 10 4 10 7 6 (void)*/
+		
+		/*List<List<Integer>> result = new ArrayList<>();
+		boolean flag = true;
+		if(root == null)
+		{
+			return result;
+		}
+		
+		Queue<Node> queue = new LinkedList<>();
+		queue.offer(root);
+		
+		while(!queue.isEmpty())
+		{
+			int size = queue.size();
+			List<Integer> list = new ArrayList<>();
+			for(int i=0; i < size; i++ )
+			{
+				Node temp = queue.poll();
+				if(flag)
+				{
+					list.add(temp.data);
+				}
+				else
+				{
+					list.add(0, temp.data);
+				}
+				
+				if(temp.left!=null)
+				{
+					queue.offer(temp.left);
+				}
+				if(temp.right!=null)
+				{
+					queue.offer(temp.left);
+				}
+			}
+			result.add(list);
+			flag =! flag;
+		}
+		return result;
+		//[[2], [4, 4], [7, 7, 7, 7], [6, 6, 6, 6]] (List<List<Integer>>)*/
+	}
 }
 
 
