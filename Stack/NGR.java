@@ -40,7 +40,7 @@ public class NGR {
 				
 			}
 			
-			if(s.size()>0 && arr[i] > s.peek())
+			if(s.size()>0 && arr[i] >= s.peek())
 			{
 				while(s.size()>0 && arr[i] >= s.peek())
 				{
