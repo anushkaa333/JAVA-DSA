@@ -120,6 +120,12 @@ public class BS
 		System.out.println("Zigzag traversal :" );
 		zigzag(root); //for void type
 		System.out.println(zigzag(root));//for list type
+		
+		System.out.println();
+		System.out.println("Mirror image OR invert tree");
+		mirror(root);
+		System.out.println("Inorder on Mirror image OR invert tree");
+		inorder(root);
 	}
 	
 	public static Node CreateTree()
@@ -694,5 +700,7 @@ Max path sum :
 Boundry level traversal :
 [2, 4, 6, 10, 1, 9, 8]
 
-
+Mirror image OR invert tree
+Inorder on Mirror image OR invert tree
+9 8 1 2 10 4 7 6 
 */
