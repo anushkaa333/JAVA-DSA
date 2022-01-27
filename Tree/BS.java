@@ -584,6 +584,23 @@ public class BS
 		return result;
 		//[[2], [4, 4], [7, 7, 7, 7], [6, 6, 6, 6]] (List<List<Integer>>)*/
 	}
+	
+	public static void mirror(Node root)
+	{
+		if(root == null)
+		{
+			return;
+		}
+		
+		mirror(root.left);
+		mirror(root.right);
+		
+		Node temp;
+		temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+		
+	}
 }
 
 
