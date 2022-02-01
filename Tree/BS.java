@@ -601,6 +601,27 @@ public class BS
 		root.right = temp;
 		
 	}
+	
+	public static Node lca(Node root, int p, int q)
+	{
+		if(root == null || root.data ==p || root.data ==q)
+		{
+			return root;
+		}
+		Node l = lca(root.left, p, q);
+		Node r = lca(root.right, p , q);
+		
+		if(l == null)
+		{
+			return r; 
+		}
+		else if(r == null)
+		{
+			return l;
+		}
+		else
+		return root;
+	}
 }
 
 
@@ -720,4 +741,17 @@ Boundry level traversal :
 Mirror image OR invert tree
 Inorder on Mirror image OR invert tree
 9 8 1 2 10 4 7 6 
+
+
+Lowest common ancestor
+
+6
+9
+
+2
+
+7
+10
+
+4
 */
