@@ -67,8 +67,17 @@ public class BS
 		inorder(root);
 		
 		System.out.println();
+		System.out.println("Stack Inorder");
+		st_inorder(root);
+		
+		System.out.println();
 		System.out.println("Preorder");
 		preorder(root);
+		
+		
+		System.out.println();
+		System.out.println("Stack Preorder");
+		System.out.println(st_preorder(root));
 		
 		System.out.println();
 		System.out.println("Postorder");
@@ -161,6 +170,33 @@ public class BS
 		inorder(root.right);
 	}
 	
+	
+	public static void st_inorder(Node root)
+	{
+		//ArrayList<Integer> list = new ArrayList<Integer>();
+		if(root == null)
+		{
+			return;
+		}
+		Stack<Node> s = new Stack<Node>();
+		Node temp = root;
+		while(temp!=null && s.size()>0)
+		{
+			while(temp!=null)
+			{
+				s.push(temp);
+				/*System.out.print(s.peek().data + " ");
+				list.add(temp.data);*/
+				temp = temp.left;
+			}
+			
+			temp = s.pop();
+			System.out.print(temp.data + " ");
+			temp = temp.right;
+		}
+		//return list;
+	}
+	
 	public static void preorder(Node root)
 	{
 		if(root == null)
@@ -170,6 +206,27 @@ public class BS
 		System.out.print(root.data + " ");
 		preorder(root.left);
 		preorder(root.right);
+	}
+	
+	
+	public static ArrayList<Integer> st_preorder(Node root)
+	{
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		Stack<Node> s = new Stack<Node>();
+		Node temp = root;
+		while(temp!=null && !s.isEmpty())
+		{
+			while(temp!=null)
+			{
+				s.push(temp);
+				System.out.print(s.peek().data + " ");
+				list.add(temp.data);
+				temp = temp.left;
+			}
+			temp = s.pop();
+			temp = temp.right;
+		}
+		return list;
 	}
 	
 	public static void postorder(Node root)
